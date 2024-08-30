@@ -1,0 +1,308 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--surface-bg, #F7F7F7);
+    overflow-x: hidden;
+    position: absolute;
+}
+
+.pricing-container {
+    border-radius: 10px;
+    padding: 60px 16px 140px 16px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 48px;
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+
+
+.title {
+    grid-row: 1/2;
+}
+
+.benefits-list {
+    grid-row: 2/3;
+}
+
+.read-more-button {
+    grid-row: 3/4;
+}
+
+
+
+.pricing-container .subtitle {
+    color: #F41E1E;
+    text-transform: uppercase;
+    font-family: Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin: 0;
+}
+
+.pricing-container h1 {
+    font-family: "Roboto", sans-serif;
+    font-size: 31px;
+    font-weight: 900;
+    color: #1A1A1A;
+    line-height: 37.2px;
+    margin: 0;
+}
+
+.pricing-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.pricing-container ul li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #4E4B66;
+}
+
+.pricing-container ul li::before {
+    content: '✔';
+    color: #F41E1E;
+    margin-right: 10px;
+}
+
+.pricing-container .btn {
+    all: unset;
+    cursor: pointer;
+    padding: 16px 48px;
+    background-color: #F41E1E;
+    color: white;
+    text-decoration: none;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    display: inline-block;
+    transition: background-color 500ms;
+}
+
+.pricing-container .btn:hover {
+    background-color: darkred;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.plan {
+    text-align: center;
+    border: none;
+    padding: 20px;
+}
+
+.plan h4 {
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 19.2px;
+    text-align: center;
+    margin: 0;
+
+}
+
+.plan h2 {
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 0;
+    line-height: 37.2px;
+}
+
+.plan .price {
+    font-size: 31px;
+    font-weight: 900;
+
+}
+
+.plan .description {
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    margin-top: 24px;
+}
+
+.plan .faded-line {
+    margin-top: 18px;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(185, 185, 185) 50%, rgba(99, 99, 99, 0) 100%);
+}
+
+.plan.free {
+    background-color: #fff;
+    padding: 32px 16px;
+}
+
+.plan.weekly {
+    background: var(--surface-bg-dark, #1A1A1A);
+    color: white;
+    padding: 48px 16px;
+}
+
+.plan.monthly {
+    background-color: #fff;
+    padding: 32px 16px;
+}
+
+.plan .btn {
+    margin-top: 20px;
+}
+
+.plan p {
+    font-size: 0.9em;
+    margin: 10px 0;
+}
+.graphic{
+    position: absolute;
+    bottom: 0;
+  
+}
+@media (min-width: 768px) {
+    .pricing-container {
+        padding: 60px 32px 140px 32px;
+        grid-template-columns: 3fr 1fr;
+        grid-template-rows: auto 1fr;
+        row-gap: 2rem;
+    }
+
+    .title {
+        grid-column: 1/2;
+        grid-row: unset;
+    }
+
+    .benefits-list {
+        grid-row: 2/3;
+        grid-column: 1/3;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .read-more-button {
+        grid-row: unset;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .plans-section {
+        display: flex;
+        align-items: center;
+        grid-column: 1/3;
+    }
+
+    .plan.weekly {
+        padding: 48px 16px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .pricing-container {
+        padding: 80px 40px 160px 40px;
+        grid-template-columns: auto auto;
+        row-gap: 4rem;
+        column-gap: 15px;
+    }
+
+    .pricing-container .subtitle {
+        font-size: 16px;
+    }
+
+    .title {
+        grid-column: 1/5;
+    }
+
+    .title h1 {
+        font-size: 39px;
+    }
+
+    .benefits-list {
+        grid-row: 2/3;
+        grid-column: 1/3;
+        display: grid;
+        grid-template-columns: 1fr;
+        max-width: 221px;
+    }
+
+    .read-more-button {
+        grid-column: 6/7;
+
+    }
+
+    .plans-section {
+        display: flex;
+        grid-row: 2/3;
+        grid-column: 4/7;
+    }
+
+    .plan {
+        max-width: 234.33px;
+    }
+
+    .plan.free,
+    .plan.monthly {
+        padding: 40px 32px;
+        max-height: 421px;
+    }
+
+    .plan.weekly {
+        padding: 64px 32px;
+    }
+}
+@media (min-width: 1440px) {
+    .pricing-container {
+        width: 100%;
+        max-width: 1400px;
+    }
+
+    .benefits-list {
+        grid-row: 2/3;
+        grid-column: 1/3;
+        display: grid;
+        grid-template-columns: 1fr;
+        max-width: 349px;
+    }
+    .title h1{
+        font-size: 49px;
+    }
+    .plans-section {
+        justify-content: flex-end;
+        display: flex;
+    }
+    
+    .plan {
+        max-width: 309.33px;
+    }
+
+    .plan.free,
+    .plan.monthly {
+        padding: 40px 32px;
+        max-height: 399px;
+    }
+
+    .plan.weekly {
+        padding: 64px 32px;
+        max-height: 449px;
+    }
+}
