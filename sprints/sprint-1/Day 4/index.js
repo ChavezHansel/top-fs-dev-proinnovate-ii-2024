@@ -1,17 +1,4 @@
-const draggableElement = document.getElementById("draggableElement");
 
-draggableElement.addEventListener("dragstart", (event) => {
-    // Crear un clon del elemento para usar como imagen de arrastre
-    draggableElement.style.backgroundColor = "red";
-});
-
-draggableElement.addEventListener("dragend", () => {
-    // Limpia la imagen de arrastre del DOM
-    const dragImage = document.querySelector(".drag-image");
-    if (dragImage) {
-        dragImage.remove();
-    }
-});
 function ejercicio1() {
     let inputFrase = prompt("Ingresa una frase.");
     console.log(inputFrase);

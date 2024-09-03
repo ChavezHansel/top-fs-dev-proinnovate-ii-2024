@@ -16,30 +16,13 @@
             padding: 5px 15px;
         }
 
-        /* Define el estilo predeterminado de la tarjeta */
-        /* Estilo predeterminado del elemento */
-        .task-card {
-            background-color: white;
-            padding: 16px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: opacity 0.2s;
-        }
-
-        /* Estilo del clon usado como imagen de arrastre */
-        .drag-image {
-            opacity: 1 !important; /* Asegúrate de que el clon no esté desvanecido */
-            box-shadow: none; /* Elimina el efecto de sombra si es necesario */
-            border: none; /* Opcional: elimina el borde si se aplica */
-        }
+      
     </style>
     <body>
         <main>
             <h1>Ejercicios JavaScript</h1>
             <div
                 class="buttons_container task-card"
-                id="draggableElement"
-                draggable="true"
             >
                 <button onclick="ejercicio1()">Ejercicio 1</button>
                 <button onclick="ejercicio2()">Ejercicio 2</button>
