@@ -276,7 +276,7 @@ function filterArray(arr, callback) {
 
 const numbers = [1, 2, 3, 4, 5];
 const evens = filterArray(numbers, (x) => x % 2 === 0);
-console.log(evens); // Output: [2, 4]
+console.log(evens);
 
 //Function Timer
 
@@ -288,7 +288,130 @@ function timeFunction(fn) {
 }
 
 timeFunction(() => {
-    for (let i = 0; i < 1000000; i++) {} // Some computation
+    for (let i = 0; i < 1000000; i++) {} 
 });
 
 //Advanced Exercises
+//Function Debouncing
+
+function debounce(fn, delay) {
+    let timeout;
+    return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => fn(...args), delay);
+    };
+}
+
+const log1 = debounce(() => console.log("Debounced!"), 500);
+log1();
+log1();
+log1();
+
+//Throttle Function
+function throttle(fn, interval) {
+    let lastTime = 0;
+    return function (...args) {
+        const now = Date.now();
+        if (now - lastTime >= interval) {
+            lastTime = now;
+            fn(...args);
+        }
+    };
+}
+
+const log2 = throttle(() => console.log("Throttled!"), 500);
+log2();
+log2();
+
+//Custom Map Function
+
+function customMap(arr, callback) {
+    const result = [];
+    for (let i = 0; i < arr.length; i++) {
+        result.push(callback(arr[i], i, arr));
+    }
+    return result;
+}
+
+const numbers2 = [1, 2, 3];
+const doubled = customMap(numbers2, (x) => x * 2);
+console.log(doubled); // Output: [2, 4, 6]
+
+//Compose Functions
+function compose(...fns) {
+    return function (x) {
+        return fns.reduceRight((v, fn) => fn(v), x);
+    };
+}
+
+const add2 = (x) => x + 1;
+const double3 = (x) => x * 2;
+
+const composed3 = compose(add2, double3);
+console.log(composed3(5)); // Output: 11 (double(5) => 10, add1(10) => 11)
+
+//Partial Application
+
+function partial(fn, ...presetArgs) {
+    return function (...args) {
+        return fn(...presetArgs, ...args);
+    };
+}
+
+const add4 = (a, b, c) => a + b + c;
+const add5 = partial(add4, 5);
+
+console.log(add5(10, 15)); // Output: 30 (5 + 10 + 15)
+
+//Recursion Exercises
+//Factorial Calculation
+function factorial(n) {
+    if (n <= 1) return 1;
+    return n * factorial(n - 1);
+}
+
+console.log(factorial(5)); // Output: 120 (5! = 5 * 4 * 3 * 2 * 1)
+console.log(factorial(3)); // Output: 6 (3! = 3 * 2 * 1)
+//Fibonacci Sequence
+
+function fibonacci(n) {
+    if (n <= 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+console.log(fibonacci(5)); // Output: 5 (0, 1, 1, 2, 3, 5)
+console.log(fibonacci(7)); // Output: 13 (0, 1, 1, 2, 3, 5, 8, 13)
+
+//Sum of Array
+
+function sumArray(arr) {
+    if (arr.length === 0) return 0;
+    return arr[0] + sumArray(arr.slice(1));
+}
+
+console.log(sumArray([1, 2, 3, 4])); // Output: 10
+console.log(sumArray([5, 10, 15])); // Output: 30
+
+//Advanced Recursion
+//Flatten Nested Arrays
+function flatten(arr) {
+    let result = [];
+
+    for (const element of arr) {
+        if (Array.isArray(element)) {
+            result = result.concat(flatten(element));
+        } else {
+            result.push(element);
+        }
+    }
+
+    return result;
+}
+
+console.log(flatten([1, [2, [3, 4], 5], 6])); // Output: [1, 2, 3, 4, 5, 6]
+console.log(
+    flatten([
+        [1, 2],
+        [3, [4, [5]]],
+    ])
+); // Output: [1, 2, 3, 4, 5]
